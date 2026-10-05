@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>supimlilith clothing center | Streetwear & Fashion in India</title>
+<meta name="description" content="supimlilith clothing center - bold streetwear and everyday fashion for young adults and teens in India. Prices in INR.">
+<meta property="og:title" content="supimlilith clothing center">
+<meta property="og:description" content="Bold streetwear and everyday fashion. Shop online.">
+<style>
+:root{--black:#0b0b0c;--panel:#161617;--red:#d3122b;--red2:#a30d21;--skin:#f1c9a5;--skin2:#e0a97f;--text:#f5ece4;--muted:#b9a99a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0}
+.wrap{max-width:1150px;margin:auto;padding:0 16px}
+.topbar{background:var(--red);color:#fff;font-size:13px;text-align:center;padding:6px 10px}
+header{position:sticky;top:0;z-index:20;background:rgba(11,11,12,.95);border-bottom:1px solid #2a2a2c}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
+.logo{font-weight:800;letter-spacing:1px;font-size:18px}
+.logo span{color:var(--red)}
+.nav input{flex:1;max-width:320px;background:var(--panel);border:1px solid #333;color:var(--text);padding:8px 12px;border-radius:20px}
+.cartbtn{background:var(--skin);color:#000;padding:8px 14px;border-radius:20px;font-weight:700}
+.hero{padding:60px 0;background:linear-gradient(135deg,#000 55%,var(--red2));text-align:center}
+.hero h1{font-size:clamp(30px,6vw,56px);line-height:1.1}
+.hero h1 em{color:var(--skin);font-style:normal}
+.hero p{color:var(--muted);margin:14px auto 22px;max-width:520px}
+.btn{display:inline-block;background:var(--red);color:#fff;padding:12px 24px;border-radius:6px;font-weight:700}
+.btn:hover{background:var(--red2)}
+.live{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px;font-size:13px}
+.live div{background:rgba(241,201,165,.12);border:1px solid var(--skin2);color:var(--skin);padding:6px 12px;border-radius:20px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2ecc71;margin-right:6px}
+.dot.off{background:var(--red)}
+h2{margin:36px 0 14px;font-size:24px}
+h2::after{content:"";display:block;width:50px;height:3px;background:var(--red);margin-top:6px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{background:var(--panel);color:var(--text);padding:7px 14px;border-radius:20px;border:1px solid #333}
+.chip.on{background:var(--skin);color:#000;border-color:var(--skin)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid #262628;display:flex;flex-direction:column}
+.img{height:200px;display:flex;align-items:center;justify-content:center;font-size:70px;background:linear-gradient(160deg,var(--skin),var(--skin2))}
+.info{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.price{color:var(--skin);font-weight:700}
+.stock{font-size:12px;color:var(--muted)}
+.stock.low{color:#ff6b6b}
+.card select{background:#000;color:var(--text);border:1px solid #333;padding:6px;border-radius:6px}
+.add{background:var(--red);color:#fff;padding:9px;border-radius:6px;font-weight:700;margin-top:auto}
+.add:disabled{background:#444;cursor:not-allowed}
+.empty{color:var(--muted);padding:30px 0;text-align:center}
+#drawer{position:fixed;top:0;right:-420px;width:min(400px,100%);height:100%;background:var(--panel);z-index:40;transition:right .25s;display:flex;flex-direction:column;border-left:2px solid var(--red)}
+#drawer.open{right:0}
+#veil{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:30;display:none}
+#veil.open{display:block}
+.dh{padding:16px;display:flex;justify-content:space-between;border-bottom:1px solid #2a2a2c;font-weight:700}
+.items{flex:1;overflow:auto;padding:12px}
+.line{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #2a2a2c;font-size:14px}
+.qty button{background:#000;color:var(--text);width:24px;height:24px;border-radius:4px;border:1px solid #444}
+.df{padding:16px;border-top:1px solid #2a2a2c}
+.row{display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px}
+.row.t{font-weight:800;font-size:17px;color:var(--skin)}
+.form{display:grid;gap:8px;margin:10px 0}
+.form input{background:#000;color:var(--text);border:1px solid #333;padding:9px;border-radius:6px;width:100%}
+.form input.bad{border-color:var(--red)}
+.err{color:#ff6b6b;font-size:12px;min-height:14px}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.about div{background:var(--panel);padding:18px;border-radius:10px;border-top:3px solid var(--red)}
+footer{margin-top:50px;background:#000;border-top:2px solid var(--red);padding:26px 0;text-align:center;color:var(--muted);font-size:13px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--skin);color:#000;padding:10px 18px;border-radius:20px;font-weight:700;z-index:60;opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="topbar">Free shipping on orders above ₹1,999 &bull; Cash on Delivery available</div>
+<header><div class="wrap nav">
+  <a class="logo" href="#top">supimlilith <span>clothing center</span></a>
+  <input id="q" type="search" placeholder="Search clothes..." aria-label="Search products">
+  <button class="cartbtn" id="openCart">Cart (<span id="cnt">0</span>)</button>
+</div></header>
+
+<section class="hero" id="top"><div class="wrap">
+  <h1>Wear it <em>loud.</em><br>Wear it <span style="color:var(--red)">yours.</span></h1>
+  <p>Streetwear and everyday fashion made for India's young crowd. New drops every week.</p>
+  <a class="btn" href="#shop">Shop now</a>
+  <div class="live">
+    <div id="clock">--</div>
+    <div><span class="dot" id="sdot"></span><span id="status">--</span></div>
+    <div id="viewers">--</div>
+  </div>
+</div></section>
+
+<main class="wrap" id="shop">
+  <h2>Shop</h2>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+
+  <h2 id="about">Why supimlilith</h2>
+  <div class="about">
+    <div><b>Quality fabric</b><p class="stock">Soft, durable and made to last wash after wash.</p></div>
+    <div><b>Easy returns</b><p class="stock">7-day returns on unworn items with tags.</p></div>
+    <div><b>Pan-India delivery</b><p class="stock">Fast shipping to every pincode we serve.</p></div>
+  </div>
+</main>
+
+<footer><div class="wrap">
+  &copy; <span id="yr"></span> supimlilith clothing center. All rights reserved.<br>
+  Replace the contact details below with your real ones: support@supimlilith.example
+</div></footer>
+
+<div id="veil"></div>
+<aside id="drawer" aria-label="Shopping cart">
+  <div class="dh"><span>Your cart</span><button id="closeCart" style="background:none;color:var(--text);font-size:20px" aria-label="Close">&times;</button></div>
+  <div class="items" id="items"></div>
+  <div class="df">
+    <div class="row"><span>Subtotal</span><span id="sub">₹0</span></div>
+    <div class="row"><span>Shipping</span><span id="ship">₹0</span></div>
+    <div class="row t"><span>Total</span><span id="tot">₹0</span></div>
+    <div class="form" id="form" hidden>
+      <input id="fn" placeholder="Full name" autocomplete="name">
+      <input id="ph" placeholder="10-digit mobile number" inputmode="numeric" maxlength="10" autocomplete="tel">
+      <input id="pin" placeholder="6-digit pincode" inputmode="numeric" maxlength="6">
+      <input id="ad" placeholder="Full address" autocomplete="street-address">
+      <div class="err" id="err"></div>
+    </div>
+    <button class="btn" id="checkout" style="width:100%">Checkout</button>
+  </div>
+</aside>
+<div id="toast" role="status"></div>
+
+<script>
+"use strict";
+// ---------- Data (edit this list to manage your products) ----------
+const SHIPPING_FREE_ABOVE = 1999, SHIPPING_FEE = 99;
+const STORE_HOURS = {open: 10, close: 21}; // IST, 24h
+const PRODUCTS = [
+  {id:1,name:"Blackout Oversized Tee",cat:"T-Shirts",price:799,stock:24,icon:"👕"},
+  {id:2,name:"Crimson Graphic Tee",cat:"T-Shirts",price:899,stock:5,icon:"👕"},
+  {id:3,name:"Street Cargo Pants",cat:"Bottoms",price:1799,stock:12,icon:"👖"},
+  {id:4,name:"Washed Black Jeans",cat:"Bottoms",price:1999,stock:8,icon:"👖"},
+  {id:5,name:"Red Zip Hoodie",cat:"Hoodies",price:2299,stock:3,icon:"🧥"},
+  {id:6,name:"Shadow Pullover Hoodie",cat:"Hoodies",price:2099,stock:15,icon:"🧥"},
+  {id:7,name:"Skin-tone Basic Crop",cat:"Women",price:699,stock:0,icon:"👚"},
+  {id:8,name:"Lilith Bodycon Dress",cat:"Women",price:1599,stock:9,icon:"👗"}
+];
+const SIZES = ["S","M","L","XL"];
+
+// ---------- Safe storage ----------
+const store = {
+  get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+const $ = id => document.getElementById(id);
+const inr = n => "₹" + n.toLocaleString("en-IN");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+// Stock persists across visits; seeded from PRODUCTS on first load
+let stock = store.get("sl_stock", null) || Object.fromEntries(PRODUCTS.map(p=>[p.id,p.stock]));
+PRODUCTS.forEach(p => { if(!(p.id in stock)) stock[p.id]=p.stock; });
+let cart = store.get("sl_cart", []).filter(i => PRODUCTS.some(p=>p.id===i.id));
+let cat = "All", query = "";
+
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),1800)}
+
+// ---------- Product rendering ----------
+function renderFilters(){
+  const cats = ["All", ...new Set(PRODUCTS.map(p=>p.cat))];
+  $("filters").innerHTML = cats.map(c=>`<button class="chip ${c===cat?"on":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+}
+function renderGrid(){
+  const list = PRODUCTS.filter(p => (cat==="All"||p.cat===cat) && p.name.toLowerCase().includes(query));
+  if(!list.length){ $("grid").innerHTML = '<p class="empty">No products found.</p>'; return; }
+  $("grid").innerHTML = list.map(p=>{
+    const s = stock[p.id];
+    const label = s<=0 ? "Out of stock" : s<=5 ? `Only ${s} left!` : `${s} in stock`;
+    return `<article class="card">
+      <div class="img" aria-hidden="true">${p.icon}</div>
+      <div class="info"><b>${esc(p.name)}</b>
+        <span class="price">${inr(p.price)}</span>
+        <span class="stock ${s>0&&s<=5?"low":""}">${label}</span>
+        <select id="sz${p.id}" aria-label="Size">${SIZES.map(z=>`<option>${z}</option>`).join("")}</select>
+        <button class="add" data-id="${p.id}" ${s<=0?"disabled":""}>${s<=0?"Sold out":"Add to cart"}</button>
+      </div></article>`;
+  }).join("");
+}
+
+// ---------- Cart logic ----------
+function inCart(id){return cart.filter(i=>i.id===id).reduce((a,i)=>a+i.qty,0)}
+function addToCart(id){
+  const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+  if(inCart(id) >= stock[id]){ toast("No more stock available"); return; }
+  const size = $("sz"+id).value;
+  const line = cart.find(i=>i.id===id && i.size===size);
+  line ? line.qty++ : cart.push({id,size,qty:1});
+  saveCart(); toast("Added to cart");
+}
+function change(idx,d){
+  const l = cart[idx]; if(!l) return;
+  if(d>0 && inCart(l.id) >= stock[l.id]){ toast("Stock limit reached"); return; }
+  l.qty += d;
+  if(l.qty<=0) cart.splice(idx,1);
+  saveCart();
+}
+function totals(){
+  const sub = cart.reduce((a,l)=>a+PRODUCTS.find(p=>p.id===l.id).price*l.qty,0);
+  const ship = sub===0||sub>=SHIPPING_FREE_ABOVE ? 0 : SHIPPING_FEE;
+  return {sub,ship,total:sub+ship};
+}
+function saveCart(){ store.set("sl_cart",cart); renderCart(); }
+function renderCart(){
+  $("cnt").textContent = cart.reduce((a,l)=>a+l.qty,0);
+  $("items").innerHTML = cart.length ? cart.map((l,i)=>{
+    const p = PRODUCTS.find(x=>x.id===l.id);
+    return `<div class="line"><div><b>${esc(p.name)}</b><br><span class="stock">Size ${esc(l.size)} &bull; ${inr(p.price)}</span></div>
+      <div class="qty"><button data-m="${i}" aria-label="Decrease">-</button> ${l.qty} <button data-p="${i}" aria-label="Increase">+</button></div></div>`;
+  }).join("") : '<p class="empty">Your cart is empty.</p>';
+  const t = totals();
+  $("sub").textContent = inr(t.sub);
+  $("ship").textContent = t.ship ? inr(t.ship) : "Free";
+  $("tot").textContent = inr(t.total);
+}
+function openCart(o){ $("drawer").classList.toggle("open",o); $("veil").classList.toggle("open",o); }
+
+// ---------- Checkout with validation ----------
+function checkout(){
+  if(!cart.length){ toast("Your cart is empty"); return; }
+  const f = $("form");
+  if(f.hidden){ f.hidden=false; $("checkout").textContent="Place order (Cash on Delivery)"; return; }
+  const v = {fn:$("fn").value.trim(), ph:$("ph").value.trim(), pin:$("pin").value.trim(), ad:$("ad").value.trim()};
+  const bad = [];
+  if(v.fn.length<2) bad.push("fn");
+  if(!/^[6-9]\d{9}$/.test(v.ph)) bad.push("ph");
+  if(!/^[1-9]\d{5}$/.test(v.pin)) bad.push("pin");
+  if(v.ad.length<8) bad.push("ad");
+  ["fn","ph","pin","ad"].forEach(k=>$(k).classList.toggle("bad",bad.includes(k)));
+  if(bad.length){ $("err").textContent="Please check the highlighted fields (valid Indian mobile and pincode needed)."; return; }
+  $("err").textContent="";
+  // Re-check stock then deduct
+  for(const l of cart){ if(inCart(l.id)>stock[l.id]){ toast("Stock changed, please review cart"); return; } }
+  const t = totals();
+  const orders = store.get("sl_orders",[]);
+  const orderId = "SL" + Date.now().toString(36).toUpperCase();
+  orders.push({orderId,cart,total:t.total,customer:v,at:new Date().toISOString()});
+  store.set("sl_orders",orders);
+  cart.forEach(l=>{stock[l.id]-=l.qty});
+  store.set("sl_stock",stock);
+  cart = []; saveCart(); renderGrid();
+  f.hidden=true; $("checkout").textContent="Checkout"; ["fn","ph","pin","ad"].forEach(k=>$(k).value="");
+  openCart(false); toast("Order placed! ID: "+orderId);
+}
+
+// ---------- Real-time info ----------
+function istNow(){ return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"})); }
+function tick(){
+  const d = istNow();
+  $("clock").textContent = d.toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",second:"2-digit"}) + " IST";
+  const open = d.getHours()>=STORE_HOURS.open && d.getHours()<STORE_HOURS.close;
+  $("status").textContent = open ? "Orders open now" : "Closed. Orders ship next morning";
+  $("sdot").classList.toggle("off",!open);
+}
+// Cross-tab live sync: stock and cart update instantly in other open tabs
+window.addEventListener("storage",e=>{
+  if(e.key==="sl_stock"){ stock=store.get("sl_stock",stock); renderGrid(); }
+  if(e.key==="sl_cart"){ cart=store.get("sl_cart",[]); renderCart(); }
+});
+// Simulated live-viewers counter (replace with a real backend counter later)
+function viewers(){ $("viewers").textContent = (18 + Math.floor(Math.random()*12)) + " people shopping now"; }
+
+// ---------- Events ----------
+$("filters").addEventListener("click",e=>{const c=e.target.closest("[data-c]");if(c){cat=c.dataset.c;renderFilters();renderGrid()}});
+$("grid").addEventListener("click",e=>{const b=e.target.closest(".add");if(b)addToCart(+b.dataset.id)});
+$("q").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();renderGrid()});
+$("items").addEventListener("click",e=>{
+  const m=e.target.closest("[data-m]"),p=e.target.closest("[data-p]");
+  if(m)change(+m.dataset.m,-1); if(p)change(+p.dataset.p,1);
+});
+$("openCart").onclick=()=>openCart(true);
+$("closeCart").onclick=()=>openCart(false);
+$("veil").onclick=()=>openCart(false);
+$("checkout").onclick=checkout;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")openCart(false)});
+
+$("yr").textContent = new Date().getFullYear();
+renderFilters(); renderGrid(); renderCart(); tick(); viewers();
+setInterval(tick,1000); setInterval(viewers,15000);
+</script>
+</body>
+</html>
